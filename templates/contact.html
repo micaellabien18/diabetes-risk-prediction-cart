@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/"><img src="static/header.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="prediction">Prediction</a></li>
+                <li><a href="data">Data</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#">Contact</a>
+    </header>
+
+    <div class="heading-contact text-center">
+        <h1>Contact Us</h1>
+        <p>Reach out to us with your health concerns or questions related to diabetes,
+            <br>and we’ll do our best to assist you in your journey towards better health.</p>
+    </div>
+    
+    <div class="content-contact">
+        <div class="text-container-contact">
+            <form id="contactForm" class="contact-form" action="/submit" method="POST">
+                <div class="form-group-contact">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group-contact">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group-contact label-space">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-button-contact">Submit</button>
+            </form>
+        </div>
+
+        <div class="image-container-contact">
+            <img src="static/contactside.png" alt="side image">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            var formData = new FormData(this);
+    
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                }
+            })
+
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>

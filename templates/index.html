@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/"><img src="static/header.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Home</a></li>
+                <li><a href="prediction">Prediction</a></li>
+                <li><a href="data">Data</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="contact">Contact</a>
+    </header>
+
+    <div class="index-content">
+        <div class="index-text-container">
+            <h1 class="h1-index">DIABETES</h1>
+            <p>Diabetes is a chronic condition that affects how your body processes blood sugar.
+                It can lead to serious health complications if not managed properly. 
+                Our platform uses CART algorithm to analyze factors like 
+                age, blood pressure, BMI, and more to predict your likelihood of developing diabetes. 
+                By providing you with this information, we aim to empower you to take proactive steps 
+                towards preventing or managing diabetes. Take charge of your health today.</p> <br> <br>
+
+                <a href="prediction"><button type="button" name="getStartedButton">Get Started</button></a>
+        </div>
+
+        <div class="index-image-container">
+            <img src="static/side.png" alt="side image">
+        </div>
+    </div>
+</body>
+</html>

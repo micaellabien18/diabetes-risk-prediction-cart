@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+ENV/
+.env.*
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plots and generated images
+static/plots/
+
+# Sensitive files
+*.secret
+*.key
+*.pem
+
+# Email credentials
+*.env
+
+# Others
+*.log
+*.sqlite3

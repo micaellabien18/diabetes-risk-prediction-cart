@@ -1,0 +1,419 @@
+/* -------------------------- GENERAL -------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #24252a;
+}
+
+.logo img {
+  margin-left: 50px;
+  width: 150px;
+  height: auto;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  margin-right: 90px;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.cta {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+  margin-right: 50px;
+}
+
+.cta:hover {
+  background-color: #79B6A9
+}
+  
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(0, 136, 169, 1);
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+    grid-column: span 2;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #79B6A9;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+/* ------------------------------------------------------------- */
+
+
+
+/* -------------------------- INDEX -------------------------- */
+.index-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.index-text-container {
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 130px;
+  margin-top: 30px;
+}
+
+.index-text-container h1 {
+  text-align: left;
+  color: rgba(0, 136, 169, 1);
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.index-text-container p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.index-image-container {
+  flex: 1;
+  text-align: right;
+  margin-right: 80px;
+  margin-top: 30px;
+}
+
+.index-image-container img {
+  max-width: 100%;
+}
+
+button[name="getStartedButton"] {
+  padding: 13px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 25%;
+  margin: 0 auto;
+}
+
+button[name="getStartedButton"]:hover {
+  background-color: #79B6A9;
+}
+/* ------------------------------------------------------------- */
+
+
+
+/* -------------------------- PREDICTION -------------------------- */
+#result {
+  text-align: center;
+  max-width: 1100px;
+  margin: 30px auto 0;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prediction-text-container {
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.prediction-text-container h1 {
+  text-align: left;
+  color: rgba(0, 136, 169, 1);
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.prediction-text-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.prediction-image-container {
+  flex: 1;
+  text-align: right;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+
+.prediction-image-container img {
+  max-width:80%;
+}
+
+.prediction-button {
+  padding: 13px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.two-column-form {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group label {
+  flex: 1;
+}
+
+.input-group input {
+  flex: 2;
+  margin-left: 10px;
+}
+
+button[name="predictButton"] {
+  padding: 13px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 20%;
+  margin: 0 auto;
+}
+
+button[name="predictButton"]:hover {
+  background-color: #79B6A9;
+}
+/* ------------------------------------------------------------- */
+
+
+
+/* -------------------------- DATA -------------------------- */
+.data-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.data-visualization {
+  flex-basis: 48%;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-top: 50px;
+}
+
+.data-visualization img {
+  width: 90%;
+}
+
+.class-balance img {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.data-title {
+  text-align: center;
+  color: rgba(0, 136, 169, 1);
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.data-table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.data-table th, .data-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.data-table th {
+  background-color: #24252a;
+  color: #fff;
+}
+/* ------------------------------------------------------------- */
+
+
+
+/* -------------------------- CONTACT -------------------------- */
+.content-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-container-contact {
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 130px;
+  margin-top: 30px;
+}
+
+.text-container-contact h1 {
+  text-align: left;
+  color: rgba(0, 136, 169, 1);
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-container-contact p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.image-container-contact {
+  flex: 1;
+  text-align: right;
+  margin-right: 80px;
+  margin-top: 0px;
+}
+
+.image-container-contact img {
+  max-width: 80%;
+}
+
+.heading-contact{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.heading-contact h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.heading-contact p{
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.form-group-contact {
+  margin-bottom: 20px;
+}
+
+.form-group-contact label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group-contact input[type="text"],
+.form-group-contact input[type="email"],
+.form-group-contact textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group-contact textarea {
+  resize: vertical;
+}
+
+.label-space label {
+  margin-bottom: 10px;
+}
+
+button.submit-button-contact[type="submit"] {
+  padding: 13px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 25%;
+  margin: 0 auto;
+}
+
+button.submit-button-contact[type="submit"]:hover {
+  background-color: #79B6A9;
+}
+
+.contact-form {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+/* ------------------------------------------------------------- */

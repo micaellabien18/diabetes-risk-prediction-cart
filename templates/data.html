@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/"><img src="static/header.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="prediction">Prediction</a></li>
+                <li><a href="#">Data</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="contact">Contact</a>
+    </header>
+
+    <h1 class="data-title">Data Visualization</h1><br><br>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Dataset</th>
+                <th>Accuracy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Training Set</td>
+                <td>{{ train_accuracy }}</td>
+            </tr>
+            <tr>
+                <td>Test Set</td>
+                <td>{{ test_accuracy }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="data-container">
+        {% for feature in ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age'] %}
+            <div class="data-visualization">
+                <img src="{{ url_for('static', filename=feature ~ '_distribution.png') }}" alt="{{ feature }} distribution">
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="data-visualization class-balance">
+        <img src="{{ url_for('static', filename='class_balance.png') }}" alt="Class balance">
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+</head>
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<body>
+    <header>
+        <a class="logo" href="/"><img src="static/header.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Prediction</a></li>
+                <li><a href="data">Data</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="contact">Contact</a>
+    </header>
+
+    <h1 class="page-title">Diabetes Prediction</h1>
+
+    <form id="prediction-form" class="two-column-form">
+        <div class="input-group">
+            <label for="pregnancies">Pregnancies:</label>
+            <input type="text" id="pregnancies" name="pregnancies">
+        </div>
+        <div class="input-group">
+            <label for="glucose">Glucose:</label>
+            <input type="text" id="glucose" name="glucose">
+        </div>
+        <div class="input-group">
+            <label for="bloodpressure">Blood Pressure:</label>
+            <input type="text" id="bloodpressure" name="bloodpressure">
+        </div>
+        <div class="input-group">
+            <label for="skinthickness">Skin Thickness:</label>
+            <input type="text" id="skinthickness" name="skinthickness">
+        </div>
+        <div class="input-group">
+            <label for="insulin">Insulin:</label>
+            <input type="text" id="insulin" name="insulin">
+        </div>
+        <div class="input-group">
+            <label for="bmi">BMI:</label>
+            <input type="text" id="bmi" name="bmi">
+        </div>
+        <div class="input-group">
+            <label for="diabetespedigreefunction">Diabetes Pedigree Function:</label>
+            <input type="text" id="diabetespedigreefunction" name="diabetespedigreefunction">
+        </div>
+        <div class="input-group">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age">
+        </div>
+
+        <button type="button" name="predictButton" onclick="predict()">Predict</button>
+    </form>
+    
+    <div id="result" class="hidden"></div>
+
+    <script>
+        function predict() {
+            var pregnancies = document.getElementById("pregnancies").value.trim();
+            var glucose = document.getElementById("glucose").value.trim();
+            var bloodpressure = document.getElementById("bloodpressure").value.trim();
+            var skinthickness = document.getElementById("skinthickness").value.trim();
+            var insulin = document.getElementById("insulin").value.trim();
+            var bmi = document.getElementById("bmi").value.trim();
+            var diabetespedigreefunction = document.getElementById("diabetespedigreefunction").value.trim();
+            var age = document.getElementById("age").value.trim();
+    
+            if (pregnancies === "" || glucose === "" || bloodpressure === "" || skinthickness === "" || insulin === "" || bmi === "" || diabetespedigreefunction === "" || age === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
+            var input = {
+                "pregnancies": parseFloat(pregnancies),
+                "glucose": parseFloat(glucose),
+                "bloodpressure": parseFloat(bloodpressure),
+                "skinthickness": parseFloat(skinthickness),
+                "insulin": parseFloat(insulin),
+                "bmi": parseFloat(bmi),
+                "diabetespedigreefunction": parseFloat(diabetespedigreefunction),
+                "age": parseFloat(age)
+            };
+    
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(input)
+            })
+            .then(response => response.json())
+            .then(data => {
+            var resultDiv = document.getElementById("result");
+            var message = data.prediction ? "At Risk of Diabetes" : "Not At Risk of Diabetes";
+            var additionalMessage = data.prediction ? "Based on the analysis of your health data, our prediction indicates that you are at risk of developing diabetes. It's essential to take proactive steps to manage your health effectively. We recommend consulting with a healthcare professional for further evaluation and guidance on lifestyle changes, such as diet modifications and exercise routines, to reduce your risk and maintain your well-being." :
+                        "Congratulations! According to our prediction model, you are not at risk of developing diabetes at this time. However, it's still crucial to prioritize your health by maintaining a balanced diet, staying physically active, and scheduling regular check-ups with your healthcare provider. By continuing to monitor your health and making healthy choices, you can further reduce your risk of developing diabetes in the future.";
+            var imageSrc = data.prediction ? "static/risk.png" : "static/notrisk.png";
+
+            resultDiv.innerHTML = `
+            <div class="prediction-content">
+                <div class="prediction-text-container">
+                    <h1>${message}</h1>
+                    <p>${additionalMessage}</p><br><br>
+                    <button type="button" class="prediction-button" onclick="showForm()">Back</button>
+                </div>
+                <div class="prediction-image-container">
+                    <img src="${imageSrc}" alt="side image">
+                </div>
+            </div>`;
+
+            document.getElementById("prediction-form").classList.add("hidden");
+            document.getElementById("result").classList.remove("hidden");
+            document.getElementById("result").scrollIntoView();
+            document.querySelector('.page-title').classList.add('hidden');
+        })
+
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    
+        function showForm() {
+            document.getElementById("prediction-form").classList.remove("hidden");
+            document.getElementById("result").classList.add("hidden");
+            document.querySelector('.page-title').classList.remove('hidden');
+        }
+    </script>    
+</body>
+</html>
